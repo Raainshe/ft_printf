@@ -1,36 +1,60 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rmakoni <rmakoni@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/21 11:50:39 by rmakoni           #+#    #+#             */
-/*   Updated: 2024/11/07 11:24:48 by rmakoni          ###   ########.fr       */
+/*   Created: 2024/10/15 10:12:31 by rmakoni           #+#    #+#             */
+/*   Updated: 2024/11/27 14:59:17 by rmakoni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_putstr_fd(char *s, int fd)
+int	reverse_print(char *snum, int len, int fd)
 {
-	int	i;
 	int	count;
 	int	temp;
 
-	i = 0;
-	if (s == NULL)
-	{
-		s = "(null)";
-	}
+	len--;
 	count = 0;
-	while (s[i] != '\0')
+	while (len >= 0)
 	{
-		temp = write(fd, &s[i], 1);
+		temp = write(fd, &snum[len], 1);
 		if (temp == -1)
 			return (temp);
 		count += temp;
-		i++;
+		len--;
 	}
 	return (count);
+}
+
+//Writes the numbers inputed on the console
+int	ft_putnbr_fdp(int n, int fd)
+{
+	char	snum[12];
+	int		i;
+	int		r;
+	int		is_neg;
+
+	is_neg = 0;
+	i = 0;
+	if (n == 0)
+		snum[i++] = '0';
+	if (n < 0)
+		is_neg = 1;
+	while (n != 0)
+	{
+		if (n < 0)
+			r = (-1) * (n % 10);
+		else
+			r = n % 10;
+		snum[i++] = r + '0';
+		n = n / 10;
+	}
+	if (is_neg)
+		snum[i++] = '-';
+	snum[i] = '\0';
+	return (reverse_print(snum, i, fd));
 }

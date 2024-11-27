@@ -1,24 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rmakoni <rmakoni@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/17 12:58:12 by rmakoni           #+#    #+#             */
-/*   Updated: 2024/11/07 11:25:23 by rmakoni          ###   ########.fr       */
+/*   Created: 2024/10/15 11:14:51 by rmakoni           #+#    #+#             */
+/*   Updated: 2024/11/27 14:59:05 by rmakoni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	*ft_calloc(size_t num, size_t size)
+int	ft_toupperp(int c, char x)
 {
-	char	*mem;
-
-	mem = malloc(num * size);
-	if (!mem)
-		return (NULL);
-	ft_bzero(mem, num * size);
-	return (mem);
+	if (x == 'x')
+		return (c);
+	if (c >= 'a' && c <= 'z')
+		return (c - 32);
+	else
+		return (c);
 }

@@ -6,7 +6,7 @@
 /*   By: rmakoni <rmakoni@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/24 12:41:11 by rmakoni           #+#    #+#             */
-/*   Updated: 2024/11/07 11:25:05 by rmakoni          ###   ########.fr       */
+/*   Updated: 2024/11/27 14:58:26 by rmakoni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,13 @@ int	print_arg(char c, va_list args)
 
 	temp = 0;
 	if (c == 'i' || c == 'd')
-		temp = ft_putnbr_fd(va_arg(args, int), 1);
+		temp = ft_putnbr_fdp(va_arg(args, int), 1);
 	else if (c == 'u')
 		temp = ft_print_unsigned(va_arg(args, unsigned int));
 	else if (c == 'c')
-		temp = ft_putchar_fd((char)va_arg(args, int), 1);
+		temp = ft_putchar_fdp((char)va_arg(args, int), 1);
 	else if (c == 's')
-		temp = ft_putstr_fd(va_arg(args, char *), 1);
+		temp = ft_putstr_fdp(va_arg(args, char *), 1);
 	else if (c == 'x' || c == 'X')
 		temp = ft_gethex((unsigned int)va_arg(args, int), c);
 	else if (c == 'p')

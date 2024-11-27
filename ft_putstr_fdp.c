@@ -1,23 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_toupper.c                                       :+:      :+:    :+:   */
+/*   ft_putstr_fdp.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rmakoni <rmakoni@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/15 11:14:51 by rmakoni           #+#    #+#             */
-/*   Updated: 2024/11/07 11:24:43 by rmakoni          ###   ########.fr       */
+/*   Created: 2024/10/21 11:50:39 by rmakoni           #+#    #+#             */
+/*   Updated: 2024/11/27 15:04:02 by rmakoni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_toupper(int c, char x)
+int	ft_putstr_fdp(char *s, int fd)
 {
-	if (x == 'x')
-		return (c);
-	if (c >= 'a' && c <= 'z')
-		return (c - 32);
-	else
-		return (c);
+	int	i;
+	int	count;
+	int	temp;
+
+	i = 0;
+	if (s == NULL)
+	{
+		s = "(null)";
+	}
+	count = 0;
+	while (s[i] != '\0')
+	{
+		temp = write(fd, &s[i], 1);
+		if (temp == -1)
+			return (temp);
+		count += temp;
+		i++;
+	}
+	return (count);
 }

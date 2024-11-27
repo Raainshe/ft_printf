@@ -6,7 +6,7 @@
 /*   By: rmakoni <rmakoni@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/24 15:33:16 by rmakoni           #+#    #+#             */
-/*   Updated: 2024/11/07 11:25:15 by rmakoni          ###   ########.fr       */
+/*   Updated: 2024/11/27 15:01:29 by rmakoni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,17 +33,17 @@ int	reverse_print2(char *snum, int len, int fd)
 char	gethex_letter(int num, char c)
 {
 	if (num == 10)
-		return (ft_toupper('a', c));
+		return (ft_toupperp('a', c));
 	else if (num == 11)
-		return (ft_toupper('b', c));
+		return (ft_toupperp('b', c));
 	else if (num == 12)
-		return (ft_toupper('c', c));
+		return (ft_toupperp('c', c));
 	else if (num == 13)
-		return (ft_toupper('d', c));
+		return (ft_toupperp('d', c));
 	else if (num == 14)
-		return (ft_toupper('e', c));
+		return (ft_toupperp('e', c));
 	else
-		return (ft_toupper('f', c));
+		return (ft_toupperp('f', c));
 }
 
 int	ft_gethex(int number, char c)

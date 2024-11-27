@@ -6,13 +6,11 @@ NAME = libftprintf.a
 
 SRC_FILES = ft_gethex.c\
 			ft_printf.c\
-			ft_putchar_fd.c\
-			ft_putnbr_fd.c\
-			ft_putstr_fd.c\
-			ft_toupper.c\
+			ft_putchar_fdp.c\
+			ft_putnbr_fdp.c\
+			ft_putstr_fdp.c\
+			ft_toupperp.c\
 			ft_print_unsigned.c\
-			ft_bzero.c\
-			ft_calloc.c\
 			ft_get_address.c
 
 OBJ_FILES = $(SRC_FILES:%.c=%.o)  # We convert our SOURCE files to OBJECT files.
